@@ -1,0 +1,29 @@
+plugins {
+    id 'scala'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group 'com.volk'
+version '0.01'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.3'
+    testImplementation 'org.testng:testng:7.3.0'
+}
+
+mainClassName = 'Main'
+
+javafx {
+    version = "14"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics' ]
+}
+
+sourceSets {
+    main.scala.srcDirs = ['src/main/scala']
+    test.scala.srcDirs = ['src/test/scala']
+}

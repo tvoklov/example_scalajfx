@@ -15,13 +15,16 @@ object Controller {
     controller
   }
 
-  /** returns a scene and a controller of that scene. */
+  /**
+   * returns a scene and a controller of that scene.
+   * use if needed to initiate inside of an existing scene or whatever
+   */
   def createScene(args: Array[String] = Array.empty[String], header: String = ""): (Scene, Controller) = {
     val controller = new Controller()
     controller.setHeader(header)
     controller.setArgs(args)
 
-    val loader = new FXMLLoader(getClass.getResource(fxmlSrc))
+    val loader = new FXMLLoader(getClass().getResource(fxmlSrc))
     loader.setController(controller)
 
     val parentNode: Parent = loader.load()
@@ -31,8 +34,13 @@ object Controller {
   }
 }
 
+/** houses actual logic of a scene. */
 class Controller extends ControllerBase {
 
+  // could be done by adding them to the class itself as arguments,
+  // but that would make them immutable. you might want them to stay immutable
+  // if your window is a window with immutable information or these arguments are available at scene creation
+  // but that's unlikely so i'm using vars
   var header: String = _
   var args: Array[String] = _
 

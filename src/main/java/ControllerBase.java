@@ -3,17 +3,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
-public class ControllerBase {
+public abstract class ControllerBase {
 
-    @FXML
-    protected TextField tfMain;
+    @FXML protected TextField tfMain;
 
-    @FXML
-    protected TextArea taMain;
+    @FXML protected TextArea taMain;
 
-    @FXML
-    protected BorderPane bpMain;
+    @FXML protected BorderPane bpMain;
 
-    @FXML
-    public void initialize() { }
+    @FXML public void initialize();
 }
